@@ -78,13 +78,9 @@ public class ProdutorProdutoFeiraController {
 	}
 	
 	//Relatório 3 - juntando o 2 A e 2 B
-	@GetMapping("/detalhesDaFeira/{idFeira}/{nomeFeira}/{enderecoFeira}")//esse método usa os dois de baixo para juntar os resutados
-	//PASSAR O ENDEREÇO E NOME DO OBJETO FEIRA!!!!!!!!!!!!!!!!!
-	public List<?> listaProdutorEProdutosPorFeira(@PathVariable("idFeira") Long idFeira, @PathVariable("nomeFeira") String nomeFeira, @PathVariable("enderecoFeira") String enderecoFeira){	
+	@GetMapping("/detalhesDaFeira/{idFeira}")//esse método usa os dois de baixo para juntar os resutados
+	public List<?> listaProdutorEProdutosPorFeira(@PathVariable("idFeira") Long idFeira){	
 		List dadosDeRetorno = new ArrayList();
-		dadosDeRetorno.add(idFeira);
-		dadosDeRetorno.add(nomeFeira);
-		dadosDeRetorno.add(enderecoFeira);
 		
 		List<BuscaProdutosPorFeira> produtos = listaProdutosPorFeira(idFeira);
 
