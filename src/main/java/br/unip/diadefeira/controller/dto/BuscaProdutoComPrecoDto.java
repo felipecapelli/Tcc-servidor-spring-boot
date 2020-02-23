@@ -11,7 +11,7 @@ public class BuscaProdutoComPrecoDto {
 	private Long idProduto;
 	private String nomeProduto;
 	private BigDecimal preco;
-	private Tipo tipo;
+//	private Tipo tipo;
 	private boolean organico;
 	private String unidade;
 	
@@ -19,7 +19,7 @@ public class BuscaProdutoComPrecoDto {
 		this.idProduto = produtorProdutoFeira.getIdChaveComposta().getProduto().getIdProduto();
 		this.nomeProduto = produtorProdutoFeira.getIdChaveComposta().getProduto().getNome();
 		this.preco = produtorProdutoFeira.getPreco();
-		this.tipo  = produtorProdutoFeira.getIdChaveComposta().getProduto().getTipo();
+//		this.tipo  = produtorProdutoFeira.getIdChaveComposta().getProduto().getTipo();
 		this.organico = produtorProdutoFeira.getIdChaveComposta().getProduto().isOrganico();
 		this.unidade = produtorProdutoFeira.getIdChaveComposta().getProduto().getUnidade();
 	}
@@ -47,14 +47,14 @@ public class BuscaProdutoComPrecoDto {
 	public void setPreco(BigDecimal preco) {
 		this.preco = preco;
 	}
-
-	public Tipo getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(Tipo tipo) {
-		this.tipo = tipo;
-	}
+//
+//	public Tipo getTipo() {
+//		return tipo;
+//	}
+//
+//	public void setTipo(Tipo tipo) {
+//		this.tipo = tipo;
+//	}
 
 	public boolean isOrganico() {
 		return organico;

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.unip.diadefeira.controller.dto.BuscaPorDetalhesDaFeira;
 import br.unip.diadefeira.controller.dto.BuscaPorProduto;
-import br.unip.diadefeira.controller.dto.BuscaPorProdutorPorFeiraDto;
 import br.unip.diadefeira.controller.dto.BuscaProdutoComPrecoDto;
 import br.unip.diadefeira.controller.dto.BuscaProdutoresNumaFeiraComProdutoEspecificoDto;
 import br.unip.diadefeira.controller.dto.BuscaProdutosPorFeira;
@@ -95,13 +94,13 @@ public class ProdutorProdutoFeiraController {
 	
 	//Relatório 4
 	@GetMapping("/porProdutorPorFeira/{usuarioEmail}/{idFeira}")
-	public ResponseEntity<BuscaPorProdutorPorFeiraDto> listaPorProdutorPorFeira(@PathVariable String usuarioEmail, @PathVariable Long idFeira){
+	public ResponseEntity<List<BuscaProdutoComPrecoDto>> listaPorProdutorPorFeira(@PathVariable String usuarioEmail, @PathVariable Long idFeira){
 		List<ProdutorProdutoFeira> listaPorProdutorPorFeira;
 		List<BuscaProdutoComPrecoDto> produtoComPrecoDto;
 		try {
 			listaPorProdutorPorFeira = produtorProdutoFeiraRepository.buscaPorProdutorPorFeira(usuarioEmail, idFeira);
 			produtoComPrecoDto = BuscaProdutoComPrecoDto.converter(listaPorProdutorPorFeira);
-			return ResponseEntity.ok(BuscaPorProdutorPorFeiraDto.converter(listaPorProdutorPorFeira.get(0), produtoComPrecoDto));
+			return ResponseEntity.ok(produtoComPrecoDto);
 		} catch (IndexOutOfBoundsException e) {
 			return ResponseEntity.notFound().build();
 		}
