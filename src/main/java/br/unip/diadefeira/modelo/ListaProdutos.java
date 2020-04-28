@@ -2,31 +2,35 @@ package br.unip.diadefeira.modelo;
 
 import java.io.Serializable;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class ListaProdutos implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	@Id
-	@ManyToOne
-	private CompraReserva compraReserva;
-	@Id
-	@ManyToOne
-	private Produto produto;
 	
-	public CompraReserva getCompraReserva() {
-		return compraReserva;
+	@EmbeddedId
+	private ListaProdutosID listaProdutosID;
+	
+	public ListaProdutos() {}
+	
+	public ListaProdutos(CompraReserva compraReserva, Produto produto) {
+		listaProdutosID = new ListaProdutosID();
+		this.listaProdutosID.setCompraReserva(compraReserva);
+		this.listaProdutosID.setProduto(produto);
 	}
-	public void setCompraReserva(CompraReserva compraReserva) {
-		this.compraReserva = compraReserva;
+
+	public ListaProdutosID getListaProdutosID() {
+		return listaProdutosID;
 	}
-	public Produto getProduto() {
-		return produto;
+
+	public void setListaProdutosID(ListaProdutosID listaProdutosID) {
+		this.listaProdutosID = listaProdutosID;
 	}
-	public void setProduto(Produto produto) {
-		this.produto = produto;
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
+	
 }

@@ -1,11 +1,11 @@
-INSERT INTO USUARIO(email, nome, senha, fotografia, avaliacao_media, telefone) VALUES('felipecapelli_uru@hotmail.com', 'FelipeCapelli', '123456', 'localDaFoto', 5, '(16)99782-6732');
-insert into usuario(email, nome, senha, fotografia, avaliacao_media, telefone) VALUES('fatima@yahoo.com.br', 'Fatima Capelli', '321', 'localDaFotoFatima', 10, '(16)3337-4159');
+INSERT INTO USUARIO(email, nome, senha, fotografia, avaliacao_media, telefone) VALUES('felipecapelli_uru@hotmail.com', 'Felipe Capelli', '$2a$10$G3unU/j/chg8BfK4pSIemeNF4JFLllSY7kkW/3iUGtVD5lmJxIe7C', 'localDaFoto', 5, '(16)99782-6732');
+insert into usuario(email, nome, senha, fotografia, avaliacao_media, telefone) VALUES('fatima@yahoo.com.br', 'Fatima Capelli', '$2a$10$k34uJZ/WEYx0VHhclG8ShODAYQRHLNrPU3okoB.J1bxidL78LgqQi', 'localDaFotoFatima', 10, '(16)3337-4159');
 
-insert into usuario(email, nome, senha, fotografia, avaliacao_media, telefone) VALUES('valentim@gmail.com', 'Valentim Capelli', '123', 'localDaFotoValentim', 9, '(16)99730-3040');
+insert into usuario(email, nome, senha, fotografia, avaliacao_media, telefone) VALUES('valentim@gmail.com', 'Valentim Capelli', '$2a$10$eE28cHi2v/h7r2H1iWDzO.LVSVIceXiM.Koj8XtXjlo3FElPDo2Pq', 'localDaFotoValentim', 9, '(16)99730-3040');
 insert into produtor(email, nome_sitio, endereco, entidade_social) VALUES('valentim@gmail.com', 'Sítio São João', 'Estrada Uru à Pirajuí, km2, Uru-SP', 'AACD');
-insert into usuario(email, nome, senha, fotografia, avaliacao_media, telefone) VALUES('josesilva@gmail.com', 'Jose da Silva', '1234', 'localDaFotoJose', 7, '(16)99722-3344');
+insert into usuario(email, nome, senha, fotografia, avaliacao_media, telefone) VALUES('josesilva@gmail.com', 'Jose da Silva', '$2a$10$6Znt6Fm80gmV3QCCodRMFuZSbLJhCHIwdM3AIckEHFj.2ZjXBnk8y', 'localDaFotoJose', 7, '(16)99722-3344');
 insert into produtor(email, nome_sitio, endereco, entidade_social) VALUES('josesilva@gmail.com', 'Sítio Bom Jesus', 'Estrada Araraquara à Bueno De Andrada, km10, Araraquara-SP', 'Graac');
-insert into usuario(email, nome, senha, fotografia, avaliacao_media, telefone) VALUES('carlossouza@gmail.com', 'Carlos Souza', '12', 'localDaFotoCarlos', 8, '(16)99730-2788');
+insert into usuario(email, nome, senha, fotografia, avaliacao_media, telefone) VALUES('carlossouza@gmail.com', 'Carlos Souza', '$2a$10$XH3wwWWF6jo1Za35MqjyCunUM3kUsVhwN01/4HSLSRkmAZRaplnTG', 'localDaFotoCarlos', 8, '(16)99730-2788');
 insert into produtor(email, nome_sitio, endereco, entidade_social) VALUES('carlossouza@gmail.com', 'Sítio Nossa Senhora', 'Assentamento Monte Alegre I, Lote 10, Araraquara-SP', 'Lar dos idosos de Araraquara');
 
 insert into feira(id, nome, endereco, data) values (1, 'Feira Jardim América', 'Avenida Uchoa, 393, Araraquara-SP','2020-10-02');
@@ -93,4 +93,33 @@ insert into produtor_produto_feira(produtor_email, feira_id, produto_id_produto,
 insert into produtor_produto_feira(produtor_email, feira_id, produto_id_produto, preco) values ('carlossouza@gmail.com', 3, 6, 1.99);
 insert into produtor_produto_feira(produtor_email, feira_id, produto_id_produto, preco) values ('carlossouza@gmail.com', 3, 10, 1.99);
 
+insert into compra_reserva(usuario_email, produtor_email, feira_id, avaliacao_cliente, avaliacao_produtor, data_reserva, data_venda) values ('felipecapelli_uru@hotmail.com', 'valentim@gmail.com', 4, 10, 10, '2020-03-20T00:00:00', '2020-10-03T00:00:00');
+insert into compra_reserva(usuario_email, produtor_email, feira_id, avaliacao_cliente, avaliacao_produtor, data_reserva) values ('felipecapelli_uru@hotmail.com', 'valentim@gmail.com', 4, 10, 10, '2020-02-23T00:00:00');
+insert into compra_reserva(usuario_email, produtor_email, feira_id, avaliacao_cliente, avaliacao_produtor, data_reserva, data_venda) values ('felipecapelli_uru@hotmail.com', 'carlossouza@gmail.com', 4, 10, 10, '2020-03-20T00:00:00', '2020-10-03T00:00:00');
+insert into compra_reserva(usuario_email, produtor_email, feira_id, avaliacao_cliente, avaliacao_produtor, data_reserva) values ('felipecapelli_uru@hotmail.com', 'carlossouza@gmail.com', 4, 10, 10, '2020-02-23T00:00:00');
+insert into compra_reserva(usuario_email, produtor_email, feira_id, avaliacao_cliente, avaliacao_produtor, data_reserva, data_venda) values ('fatima@yahoo.com.br', 'valentim@gmail.com', 4, 10, 10, '2020-03-20T00:00:00', '2020-10-03T00:00:00');
+insert into compra_reserva(usuario_email, produtor_email, feira_id, avaliacao_cliente, avaliacao_produtor, data_reserva) values ('fatima@yahoo.com.br', 'valentim@gmail.com', 4, 10, 10, '2020-02-23T00:00:00');
+insert into compra_reserva(usuario_email, produtor_email, feira_id, avaliacao_cliente, avaliacao_produtor, data_reserva, data_venda) values ('fatima@yahoo.com.br', 'carlossouza@gmail.com', 4, 10, 10, '2020-03-20T00:00:00', '2020-10-03T00:00:00');
+insert into compra_reserva(usuario_email, produtor_email, feira_id, avaliacao_cliente, avaliacao_produtor, data_reserva) values ('fatima@yahoo.com.br', 'carlossouza@gmail.com', 4, 10, 10, '2020-02-23T00:00:00');
 
+insert into lista_produtos(compra_reserva_id_compra_reserva, produto_id_produto) values (1,10);
+insert into lista_produtos(compra_reserva_id_compra_reserva, produto_id_produto) values (1,11);
+insert into lista_produtos(compra_reserva_id_compra_reserva, produto_id_produto) values (1,12);
+insert into lista_produtos(compra_reserva_id_compra_reserva, produto_id_produto) values (2,11);
+insert into lista_produtos(compra_reserva_id_compra_reserva, produto_id_produto) values (2,13);
+insert into lista_produtos(compra_reserva_id_compra_reserva, produto_id_produto) values (2,10);
+insert into lista_produtos(compra_reserva_id_compra_reserva, produto_id_produto) values (3,10);
+insert into lista_produtos(compra_reserva_id_compra_reserva, produto_id_produto) values (3,11);
+insert into lista_produtos(compra_reserva_id_compra_reserva, produto_id_produto) values (3,12);
+insert into lista_produtos(compra_reserva_id_compra_reserva, produto_id_produto) values (4,10);
+
+insert into lista_produtos(compra_reserva_id_compra_reserva, produto_id_produto) values (5,10);
+insert into lista_produtos(compra_reserva_id_compra_reserva, produto_id_produto) values (5,11);
+insert into lista_produtos(compra_reserva_id_compra_reserva, produto_id_produto) values (5,12);
+insert into lista_produtos(compra_reserva_id_compra_reserva, produto_id_produto) values (6,11);
+insert into lista_produtos(compra_reserva_id_compra_reserva, produto_id_produto) values (6,13);
+insert into lista_produtos(compra_reserva_id_compra_reserva, produto_id_produto) values (6,10);
+insert into lista_produtos(compra_reserva_id_compra_reserva, produto_id_produto) values (7,10);
+insert into lista_produtos(compra_reserva_id_compra_reserva, produto_id_produto) values (7,11);
+insert into lista_produtos(compra_reserva_id_compra_reserva, produto_id_produto) values (7,12);
+insert into lista_produtos(compra_reserva_id_compra_reserva, produto_id_produto) values (8,10);

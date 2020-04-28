@@ -122,6 +122,7 @@ public class ProdutorProdutoFeiraController {
 		List<Long> idsDasFeiras = produtorProdutoFeiraRepository.buscaFeirasFuturasDoProdutor(nomeProdutor);
 		
 		for (Long feira : idsDasFeiras) {
+			//FeiraDto objetoFeiraDto = new FeiraDto(feiraRepository.findById(feira));
 			FeiraDto objetoFeiraDto = new FeiraDto(feiraRepository.findById(feira).get());
 			feirasDto.add(objetoFeiraDto);
 		}

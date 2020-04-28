@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import br.unip.diadefeira.modelo.Produtor;
 
-public interface ProdutorRepository  extends JpaRepository<Produtor, String>{
+public interface ProdutorRepository extends JpaRepository<Produtor, String>{
 
 	Produtor findByEmail(@Param("email") String produtor);//usado no relatório 2-Bdo produtorProdutoFeiraController
 	

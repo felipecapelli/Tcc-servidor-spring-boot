@@ -30,9 +30,5 @@ public class ProdutoDto {
 	public void setNomeProduto(String nomeProduto) {
 		this.nomeProduto = nomeProduto;
 	}
-
-	public static List<ProdutoDto> converter(List<Produto> produtos) {
-		return produtos.stream().map(ProdutoDto::new).collect(Collectors.toList());
-	}
 	
 }
