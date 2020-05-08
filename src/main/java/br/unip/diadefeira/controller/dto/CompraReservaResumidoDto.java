@@ -10,6 +10,8 @@ public abstract class CompraReservaResumidoDto {
 		private String nomeFeira;
 		private String emailProdutor;
 		private String nomeProdutor;
+		private String emailCliente;
+		private String nomeCliente;
 		
 		public CompraReservaResumidoDto(CompraReserva reserva) {
 			this.idCompraReserva = reserva.getIdCompraReserva();
@@ -17,6 +19,8 @@ public abstract class CompraReservaResumidoDto {
 			this.nomeFeira = reserva.getFeira().getNome();
 			this.emailProdutor = reserva.getProdutor().getEmail();
 			this.nomeProdutor = reserva.getProdutor().getNome();
+			this.emailCliente = reserva.getUsuario().getEmail();
+			this.nomeCliente = reserva.getUsuario().getNome();
 		}
 		
 		public Long getIdCompraReserva() {
@@ -58,5 +62,20 @@ public abstract class CompraReservaResumidoDto {
 		public void setNomeProdutor(String nomeProdutor) {
 			this.nomeProdutor = nomeProdutor;
 		}
-		
+
+		public String getEmailCliente() {
+			return emailCliente;
+		}
+
+		public void setEmailCliente(String emailCliente) {
+			this.emailCliente = emailCliente;
+		}
+
+		public String getNomeCliente() {
+			return nomeCliente;
+		}
+
+		public void setNomeCliente(String nomeCliente) {
+			this.nomeCliente = nomeCliente;
+		}
 	}

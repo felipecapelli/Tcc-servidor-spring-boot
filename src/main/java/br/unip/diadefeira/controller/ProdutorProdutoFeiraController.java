@@ -1,23 +1,36 @@
 package br.unip.diadefeira.controller;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.transaction.Transactional;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import br.unip.diadefeira.controller.dto.BuscaPorDetalhesDaFeira;
 import br.unip.diadefeira.controller.dto.BuscaPorProduto;
 import br.unip.diadefeira.controller.dto.BuscaProdutoComPrecoDto;
 import br.unip.diadefeira.controller.dto.BuscaProdutoresNumaFeiraComProdutoEspecificoDto;
 import br.unip.diadefeira.controller.dto.BuscaProdutosPorFeira;
+import br.unip.diadefeira.controller.dto.CompraReservaDto;
 import br.unip.diadefeira.controller.dto.FeiraDto;
 import br.unip.diadefeira.controller.dto.ProdutoDto;
+import br.unip.diadefeira.controller.dto.ProdutorProdutoFeiraDto;
+import br.unip.diadefeira.controller.form.CompraReservaForm;
+import br.unip.diadefeira.controller.form.ProdutorProdutoFeiraForm;
+import br.unip.diadefeira.modelo.CompraReserva;
 import br.unip.diadefeira.modelo.Feira;
+import br.unip.diadefeira.modelo.ListaProdutos;
 import br.unip.diadefeira.modelo.Produto;
 import br.unip.diadefeira.modelo.Produtor;
 import br.unip.diadefeira.modelo.ProdutorProdutoFeira;
@@ -143,5 +156,16 @@ public class ProdutorProdutoFeiraController {
 		
 		return dadosDeRetorno;
 	}
+	
+	@PostMapping
+	@Transactional
+	public ResponseEntity<String> cadastrar(@RequestBody @Valid ProdutorProdutoFeiraForm form, UriComponentsBuilder uriBuilder) {
+		List<ProdutorProdutoFeira> listaProdutorProdutoFeira = form.converter(feiraRepository, produtoRepository, produtorRepository);
+		for (ProdutorProdutoFeira produtorProdutoFeira : listaProdutorProdutoFeira) {
+			produtorProdutoFeiraRepository.save(produtorProdutoFeira);
+		}
+		return ResponseEntity.ok("Produto incluído com sucesso");
+	}
+	
 	
 }

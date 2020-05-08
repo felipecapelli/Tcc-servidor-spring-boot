@@ -43,19 +43,12 @@ public class CompraReserva implements Serializable{
 		this.feira = feira;
 		this.dataReserva = dataReserva;
 	}
-	
-	
 	public List<ListaProdutos> getListaProdutos() {
 		return listaProdutos;
 	}
-
 	public void setListaProdutos(List<ListaProdutos> listaProdutos) {
 		this.listaProdutos = listaProdutos;
 	}
-	
-	
-	
-	
 	public Long getIdCompraReserva() {
 		return idCompraReserva;
 	}

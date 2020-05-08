@@ -19,6 +19,14 @@ public interface CompraReservaRepository  extends JpaRepository<CompraReserva, L
 	@Query("select r from CompraReserva r where r.dataVenda <> null and usuario.email = :email")
 	List<CompraReserva> buscaCompras(@Param("email") String email);
 	
+	//----------------
+	@Query("select r from CompraReserva r where r.dataVenda = null and produtor.email = :email")
+	List<CompraReserva> buscaReservasDoProdutor(@Param("email") String email);
+	
+	@Query("select r from CompraReserva r where r.dataVenda <> null and produtor.email = :email")
+	List<CompraReserva> buscaComprasDoProdutor(@Param("email") String email);
+	//----------------
+	
 	@Query("select cr from CompraReserva cr where cr.idCompraReserva = :idCompraReserva")
 	CompraReserva buscaCompraOuReserva(@Param("idCompraReserva") Long idCompraReserva);
 }

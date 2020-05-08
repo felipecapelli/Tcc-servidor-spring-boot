@@ -82,32 +82,39 @@ public class CompraReservaController {
 		return new CompraReservaDto(compraReserva);
 	}
 	
-	//Juntando as reservas e as compras em um relatorio resumido
-	@GetMapping("/resumido/{email}")//esse método usa os dois de baixo para juntar os resutados
+	@GetMapping("/resumido/{email}")
 	public List<?> listaProdutorEProdutosPorFeira(@PathVariable("email") String email){	
 		List dadosDeRetorno = new ArrayList();
 		
-		List<ReservaDtoResumido> reservas = listarReservasResumido(email);
+		List<CompraReserva> reservas = compraReservaRepository.buscaReservas(email);
+		List<ReservaDtoResumido> reservasDto = ReservaDtoResumido.converterReservaDtoResumido(reservas);
 
-		dadosDeRetorno.add(reservas);
+		dadosDeRetorno.add(reservasDto);
 		
-		List<CompraDtoResumido> compras = listarComprasResumido(email);
-		dadosDeRetorno.add(compras);
+		List<CompraReserva> compras = compraReservaRepository.buscaCompras(email);
+		
+		List<CompraDtoResumido> comprasDto = CompraDtoResumido.converterCompraDtoResumido(compras);
+		dadosDeRetorno.add(comprasDto);
 		
 		return dadosDeRetorno;
 	}
 	
-	//--------------Usados pelo get Resumido, mas podem ser acessados separadamente
-	@GetMapping("/reservas/{email}")
-	public List<ReservaDtoResumido> listarReservasResumido (@PathVariable String email){
-		List<CompraReserva> reservas = compraReservaRepository.buscaReservas(email);
-		return ReservaDtoResumido.converterReservaDtoResumido(reservas);
-	}
 	
-	@GetMapping("/compras/{email}")
-	public List<CompraDtoResumido> listarComprasResumido (@PathVariable String email){
-		List<CompraReserva> compras = compraReservaRepository.buscaCompras(email);
-		return CompraDtoResumido.converterCompraDtoResumido(compras);
+	@GetMapping("/resumidoProdutor/{email}")
+	public List<?> listaProdutorEProdutosPorFeiraProdutor(@PathVariable("email") String email){	
+		List dadosDeRetorno = new ArrayList();
+		
+		List<CompraReserva> reservas = compraReservaRepository.buscaReservasDoProdutor(email);
+		List<ReservaDtoResumido> reservasDto = ReservaDtoResumido.converterReservaDtoResumido(reservas);
+
+		dadosDeRetorno.add(reservasDto);
+		
+		List<CompraReserva> compras = compraReservaRepository.buscaComprasDoProdutor(email);
+		
+		List<CompraDtoResumido> comprasDto = CompraDtoResumido.converterCompraDtoResumido(compras);
+		dadosDeRetorno.add(comprasDto);
+		
+		return dadosDeRetorno;
 	}
 	
 }

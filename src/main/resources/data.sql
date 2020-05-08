@@ -7,6 +7,9 @@ insert into usuario(email, nome, senha, fotografia, avaliacao_media, telefone) V
 insert into produtor(email, nome_sitio, endereco, entidade_social) VALUES('josesilva@gmail.com', 'Sítio Bom Jesus', 'Estrada Araraquara à Bueno De Andrada, km10, Araraquara-SP', 'Graac');
 insert into usuario(email, nome, senha, fotografia, avaliacao_media, telefone) VALUES('carlossouza@gmail.com', 'Carlos Souza', '$2a$10$XH3wwWWF6jo1Za35MqjyCunUM3kUsVhwN01/4HSLSRkmAZRaplnTG', 'localDaFotoCarlos', 8, '(16)99730-2788');
 insert into produtor(email, nome_sitio, endereco, entidade_social) VALUES('carlossouza@gmail.com', 'Sítio Nossa Senhora', 'Assentamento Monte Alegre I, Lote 10, Araraquara-SP', 'Lar dos idosos de Araraquara');
+insert into usuario(email, nome, senha, fotografia, avaliacao_media, telefone) VALUES('manuel@gmail.com', 'Manuel Silva', '$2a$10$XH3wwWWF6jo1Za35MqjyCunUM3kUsVhwN01/4HSLSRkmAZRaplnTG', 'localDaFotoManuel', 8, '(16)99829-3232');
+insert into produtor(email, nome_sitio, endereco, entidade_social) VALUES('manuel@gmail.com', 'Sítio Portugal', 'Fazenda São Manuel, Araraquara-SP', 'AACD');
+
 
 insert into feira(id, nome, endereco, data) values (1, 'Feira Jardim América', 'Avenida Uchoa, 393, Araraquara-SP','2020-10-02');
 insert into feira(id, nome, endereco, data) values (2, 'Feira Praça Brasil', 'Avenida Brasil, 433, Araraquara-SP','2020-09-15');
@@ -92,6 +95,7 @@ insert into produtor_produto_feira(produtor_email, feira_id, produto_id_produto,
 insert into produtor_produto_feira(produtor_email, feira_id, produto_id_produto, preco) values ('carlossouza@gmail.com', 4, 10, 2.50);
 insert into produtor_produto_feira(produtor_email, feira_id, produto_id_produto, preco) values ('carlossouza@gmail.com', 3, 6, 1.99);
 insert into produtor_produto_feira(produtor_email, feira_id, produto_id_produto, preco) values ('carlossouza@gmail.com', 3, 10, 1.99);
+
 
 insert into compra_reserva(usuario_email, produtor_email, feira_id, avaliacao_cliente, avaliacao_produtor, data_reserva, data_venda) values ('felipecapelli_uru@hotmail.com', 'valentim@gmail.com', 4, 10, 10, '2020-03-20T00:00:00', '2020-10-03T00:00:00');
 insert into compra_reserva(usuario_email, produtor_email, feira_id, avaliacao_cliente, avaliacao_produtor, data_reserva) values ('felipecapelli_uru@hotmail.com', 'valentim@gmail.com', 4, 10, 10, '2020-02-23T00:00:00');

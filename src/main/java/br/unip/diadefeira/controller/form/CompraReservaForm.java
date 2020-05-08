@@ -25,11 +25,22 @@ public class CompraReservaForm {
 	private String emailUsuario;
 	private String emailProdutor;
 	private Long IdFeira;
-	private LocalDateTime dataVenda;
-	
+
 	@JsonProperty("produtosDto")
 	private List<ListaProdutosFom> listaProdutosDto = new ArrayList<>();
 	
+	public List<ListaProdutosFom> getProdutosDto() {
+		return listaProdutosDto;
+	}
+	public void setProdutosDto(List<ListaProdutosFom> produtosDto) {
+		this.listaProdutosDto = produtosDto;
+	}
+	public Long getIdCompraReserva() {
+		return idCompraReserva;
+	}
+	public void setIdCompraReserva(Long idCompraReserva) {
+		this.idCompraReserva = idCompraReserva;
+	}
 	public String getEmailUsuario() {
 		return emailUsuario;
 	}
@@ -45,46 +56,9 @@ public class CompraReservaForm {
 	public Long getIdFeira() {
 		return IdFeira;
 	}
-	public void setIdFeira(Long idFeira) {
-		IdFeira = idFeira;
+	public void setIdFeira(Long IdFeira) {
+		this.IdFeira = IdFeira;
 	}
-	public List<ListaProdutosFom> getProdutosDto() {
-		return listaProdutosDto;
-	}
-	public void setProdutosDto(List<ListaProdutosFom> produtosDto) {
-		this.listaProdutosDto = produtosDto;
-	}
-	public Long getIdCompraReserva() {
-		return idCompraReserva;
-	}
-	public void setIdCompraReserva(Long idCompraReserva) {
-		this.idCompraReserva = idCompraReserva;
-	}
-	public String getUsuario() {
-		return emailUsuario;
-	}
-	public void setUsuario(String usuario) {
-		this.emailUsuario = usuario;
-	}
-	public String getProdutor() {
-		return emailProdutor;
-	}
-	public void setProdutor(String produtor) {
-		this.emailProdutor = produtor;
-	}
-	public Long getFeira() {
-		return IdFeira;
-	}
-	public void setFeira(Long feira) {
-		this.IdFeira = feira;
-	}
-	public LocalDateTime getDataVenda() {
-		return dataVenda;
-	}
-	public void setDataVenda(LocalDateTime dataVenda) {
-		this.dataVenda = dataVenda;
-	}
-
 	public CompraReserva converter(UsuarioRepository usuarioRepository, ProdutorRepository produtorRepository, FeiraRepository feiraRepository, ProdutoRepository produtoRepository) {
 		Usuario usuario = usuarioRepository.findByEmail(emailUsuario).get();
 		Produtor produtor = produtorRepository.findByEmail(emailProdutor);
@@ -102,7 +76,7 @@ public class CompraReservaForm {
 	
 	public CompraReserva atualizarDataVenda(CompraReservaRepository compraReservaRepository) {
 		CompraReserva compraReserva = compraReservaRepository.getOne(this.idCompraReserva);
-		compraReserva.setDataVenda(this.dataVenda);
+		compraReserva.setDataVenda(LocalDateTime.now());
 		return compraReserva;
 	}
 }

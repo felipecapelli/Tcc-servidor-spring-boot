@@ -53,10 +53,12 @@ public class SecutiryConfigurations extends WebSecurityConfigurerAdapter{
 		.antMatchers(HttpMethod.GET, "/produtorProdutoFeira/buscaFeirasEProdutosDoProdutor/*").permitAll()
 		.antMatchers(HttpMethod.GET, "/usuarios/*").permitAll()
 		.antMatchers(HttpMethod.POST, "/autenticacao").permitAll()
+		.antMatchers("/h2-console/**").permitAll()
 		.anyRequest().authenticated()
 		.and().csrf().disable()
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		.and().addFilterBefore(new AutenticacaoViaTokenFilter(tokenService, usuarioRepository), UsernamePasswordAuthenticationFilter.class);
+		http.headers().frameOptions().sameOrigin();//essa linha permite entrar no h2 sem que o spring security o bloqueie
 	}
 	
 	@Override
